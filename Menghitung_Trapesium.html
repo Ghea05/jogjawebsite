@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas Trapesium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #output {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung Luas Trapesium</h1>
+
+        <form id="trapezoid-form">
+            <div class="form-group">
+                <label for="a">Panjang sisi sejajar pertama (a):</label>
+                <input type="number" id="a" name="a" required>
+            </div>
+
+            <div class="form-group">
+                <label for="b">Panjang sisi sejajar kedua (b):</label>
+                <input type="number" id="b" name="b" required>
+            </div>
+
+            <div class="form-group">
+                <label for="h">Tinggi trapesium (h):</label>
+                <input type="number" id="h" name="h" required>
+            </div>
+
+            <button type="submit">Hitung Luas</button>
+        </form>
+
+        <div id="result">
+            <h2>Hasil:</h2>
+            <p id="output"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('trapezoid-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Ambil nilai input dari form
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const h = parseFloat(document.getElementById('h').value);
+
+            // Validasi input
+            if (isNaN(a) || isNaN(b) || isNaN(h) || a <= 0 || b <= 0 || h <= 0) {
+                alert('Mohon masukkan nilai yang valid!');
+                return;
+            }
+
+            // Hitung luas trapesium
+            const area = ((a + b) * h) / 2;
+
+            // Tampilkan hasil
+            document.getElementById('output').textContent = `Luas Trapesium: ${area} cm²`;
+        });
+    </script>
+</body>
+</html>
